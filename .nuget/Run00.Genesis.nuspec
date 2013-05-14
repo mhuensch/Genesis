@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+		<metadata>
+				<id>Run00.Genesis</id>
+				<version>0.0.0.0</version>
+				<title>Run00.Genesis</title>
+				<authors>Run00</authors>
+				<owners />
+				<licenseUrl>http://www.gnu.org/licenses/lgpl-3.0.txt</licenseUrl>
+				<projectUrl>http://run00.com/</projectUrl>
+				<iconUrl>http://xp-dev.com/svn/Run00.Genesis/logo.png</iconUrl>
+				<requireLicenseAcceptance>false</requireLicenseAcceptance>
+				<description>Run00.Genesis creates and populates objects using the provided designs.  The most common use of this project is to populate data objects for testing or design work.</description>
+				<dependencies>
+					<dependency id="Run00.Core" version="0.1.2.0" />
+				</dependencies>
+		</metadata>
+		<files>
+			<file src="Run00.Genesis\bin\Release\Run00.Genesis.dll" target="lib\Run00.Genesis.dll" />
+			<file src="Run00.Genesis.SimpleDesigns\bin\Release\Run00.Genesis.SimpleDesigns.dll" target="lib\Run00.Genesis.SimpleDesigns.dll" />
+		</files>
+</package>

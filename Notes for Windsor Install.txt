@@ -1,0 +1,11 @@
+			var providerTypes =
+				from type in assembly.GetTypes().OrderBy(t => t.FullName)
+				where typeof(IntelligentDesign).IsAssignableFrom(type)
+					&& type.HasPublicParameterlessConstructor()
+				select (IntelligentDesign)Activator.CreateInstance(type);
+
+			foreach (var design in providerTypes.Where(d => d != null))
+			{
+				Contract.Assume(design != null);
+				RegisterDesign(design);
+			}
