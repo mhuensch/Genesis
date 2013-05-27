@@ -94,8 +94,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Run00.Core.0.1.2.0\lib\Run00.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Run00.Utilities">
-      <HintPath>..\packages\Run00.Utilities.0.0.0.7\lib\4\Run00.Utilities.dll</HintPath>
+    <Reference Include="Run00.Utilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Run00.Utilities.0.0.0.11\lib\4\Run00.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

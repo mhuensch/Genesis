@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Run00.Utilities;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
-using Run00.Utilities;
 
 namespace Run00.Genesis
 {
@@ -15,6 +16,11 @@ namespace Run00.Genesis
 		public void UsingRandomDataFrom<TResult>(IEnumerable<TResult> data)
 		{
 			base.Using(() => data.Random());
+		}
+
+		public void UsingSequentialDataFrom<TResult>(IEnumerable<TResult> data, TResult previous)
+		{
+			base.Using(() => data.NextElement(previous));
 		}
 	}
 }
