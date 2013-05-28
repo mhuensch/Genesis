@@ -17,6 +17,7 @@ namespace Run00.Genesis
 		public Creator()
 		{
 			_designs = new Dictionary<Type, IntelligentDesign>();
+			_staticDesigns = new Dictionary<Type, StaticDesign>();
 		}
 
 
@@ -57,6 +58,33 @@ namespace Run00.Genesis
 			return _designs.ContainsKey(type) ? _designs[type] : null;
 		}
 
+
+		/// <summary>
+		/// Registers the designs with the creator for the type specified in the design.
+		/// </summary>
+		/// <param name="designs">The designs.</param>
+		public void RegisterStaticDesigns(IEnumerable<StaticDesign> designs)
+		{
+			Contract.Requires(designs != null);
+			foreach (var design in designs.Where(d => d != null))
+			{
+				Contract.Assume(design != null);
+				RegisterStaticDesign(design);
+			}
+		}
+		/// <summary>
+		/// Registers the design with the creator for the type specified in the design.
+		/// </summary>
+		/// <param name="design">The design.</param>
+		public void RegisterStaticDesign(StaticDesign design)
+		{
+			Contract.Requires(design != null);
+
+			if (_staticDesigns.ContainsKey(design.ForType))
+				_staticDesigns[design.ForType] = design;
+			else
+				_staticDesigns.Add(design.ForType, design);
+		}
 
 		/// <summary>
 		/// Creates the plan that the Creator will use to create and populate an object of the given type.
@@ -236,6 +264,10 @@ namespace Run00.Genesis
 		public object Create(Type type)
 		{
 			Contract.Requires(type != null);
+
+			if (_staticDesigns.Keys.Contains(type))
+				return _staticDesigns[type].CreateObject();
+
 			return Create(type, _DEFAULT_RECURSION_DEPTH);
 		}
 		public object Create(Type type, int count)
@@ -312,6 +344,7 @@ namespace Run00.Genesis
 		private const int _DEFAULT_RECURSION_DEPTH = 3;
 		private const int _DEFAULT_LIST_SIZE = 3;
 		private readonly Dictionary<Type, IntelligentDesign> _designs;
+		private readonly Dictionary<Type, StaticDesign> _staticDesigns;
 
 		[ContractInvariantMethod]
 		[ExcludeFromCodeCoverage]
