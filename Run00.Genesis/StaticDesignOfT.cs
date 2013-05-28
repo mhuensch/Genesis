@@ -1,15 +1,16 @@
 ﻿
+using System;
 namespace Run00.Genesis
 {
-	public abstract class StaticDesign<T> : StaticDesign
+	public abstract class StaticDesign<T> : IStaticDesign
 	{
-		public StaticDesign() : base(typeof(T)) { }
+		Type IStaticDesign.ForType { get { return typeof(T); } }
 
-		protected abstract T Create();
-
-		internal override object CreateObject()
+		object IStaticDesign.CreateObject()
 		{
 			return Create();
 		}
+
+		protected abstract T Create();
 	}
 }

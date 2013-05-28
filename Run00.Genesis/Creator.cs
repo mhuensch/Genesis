@@ -17,7 +17,7 @@ namespace Run00.Genesis
 		public Creator()
 		{
 			_designs = new Dictionary<Type, IntelligentDesign>();
-			_staticDesigns = new Dictionary<Type, StaticDesign>();
+			_staticDesigns = new Dictionary<Type, IStaticDesign>();
 		}
 
 
@@ -63,7 +63,7 @@ namespace Run00.Genesis
 		/// Registers the designs with the creator for the type specified in the design.
 		/// </summary>
 		/// <param name="designs">The designs.</param>
-		public void RegisterStaticDesigns(IEnumerable<StaticDesign> designs)
+		public void RegisterStaticDesigns(IEnumerable<IStaticDesign> designs)
 		{
 			Contract.Requires(designs != null);
 			foreach (var design in designs.Where(d => d != null))
@@ -76,7 +76,7 @@ namespace Run00.Genesis
 		/// Registers the design with the creator for the type specified in the design.
 		/// </summary>
 		/// <param name="design">The design.</param>
-		public void RegisterStaticDesign(StaticDesign design)
+		public void RegisterStaticDesign(IStaticDesign design)
 		{
 			Contract.Requires(design != null);
 
@@ -344,7 +344,7 @@ namespace Run00.Genesis
 		private const int _DEFAULT_RECURSION_DEPTH = 3;
 		private const int _DEFAULT_LIST_SIZE = 3;
 		private readonly Dictionary<Type, IntelligentDesign> _designs;
-		private readonly Dictionary<Type, StaticDesign> _staticDesigns;
+		private readonly Dictionary<Type, IStaticDesign> _staticDesigns;
 
 		[ContractInvariantMethod]
 		[ExcludeFromCodeCoverage]
