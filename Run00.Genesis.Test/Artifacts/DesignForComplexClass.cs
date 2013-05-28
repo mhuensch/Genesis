@@ -11,7 +11,7 @@ namespace Run00.Genesis.Test.Artifacts
 			CreateUsing(() => new ComplexClass());
 
 			var data = new[] { DateTime.Now };
-			Mutate(cc => cc.Date).UsingSequentialDataFrom(data);
+			Mutate(cc => cc.Date).UsingSequentialDataFrom(data, _previous, (prev) => _previous = prev);
 
 			//In a real usage, the following would supply random data.  
 			//See Run00.Genesis.SimpleDesigns for more realistic examples.
@@ -21,5 +21,7 @@ namespace Run00.Genesis.Test.Artifacts
 			Mutate(cc => cc.Number).Using(() => 10);
 			Mutate(cc => cc.Ids).Using(() => new List<string>() { "One", "Two", "Three" });
 		}
+
+		private static DateTime _previous;
 	}
 }
