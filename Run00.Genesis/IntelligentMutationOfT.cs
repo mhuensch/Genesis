@@ -20,8 +20,10 @@ namespace Run00.Genesis
 
 		public void UsingSequentialDataFrom(IEnumerable<TResult> data)
 		{
-			_previous =  data.NextElement((TResult)_previous);
-			base.Using(() => _previous);
+			base.Using(() => {
+				_previous = data.NextElement((TResult)_previous);
+				return _previous; 
+			});
 		}
 
 		private static TResult _previous;
