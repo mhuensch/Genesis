@@ -16,15 +16,5 @@ namespace Run00.Genesis
 		{
 			base.Using(() => data.Random());
 		}
-
-		public void UsingSequentialDataFrom(IEnumerable<TResult> data, TResult previous, Action<TResult> previousCallback)
-		{
-			base.Using(() =>
-			{
-				var next = data.NextElement(previous);
-				previousCallback(next);
-				return next;
-			});
-		}
 	}
 }

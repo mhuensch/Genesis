@@ -166,7 +166,7 @@ namespace Run00.Genesis
 					var item = ((IGenerator)itemDesign).Generate();
 					if (item != null)
 					{
-						item = Populate(item, CreatePlanFor(genericArg).PropertyPlans, _DEFAULT_RECURSION_DEPTH, _DEFAULT_RECURSION_DEPTH);
+						item = Populate(item, CreatePlanFor(genericArg, size).PropertyPlans, _DEFAULT_RECURSION_DEPTH, _DEFAULT_RECURSION_DEPTH);
 						list.Add(item);
 					}
 				}
@@ -208,7 +208,7 @@ namespace Run00.Genesis
 					var item = ((IGenerator)itemDesign).Generate();
 					if (item != null)
 					{
-						item = Populate(item, CreatePlanFor(genericArg).PropertyPlans, _DEFAULT_RECURSION_DEPTH, _DEFAULT_RECURSION_DEPTH);
+						item = Populate(item, CreatePlanFor(genericArg, size).PropertyPlans, _DEFAULT_RECURSION_DEPTH, _DEFAULT_RECURSION_DEPTH);
 						list.Add(item);
 					}
 				}
