@@ -13,14 +13,17 @@ namespace Run00.Genesis
 			base.Using(() => expression.Compile().Invoke());
 		}
 
-		public void UsingRandomDataFrom<TResult>(IEnumerable<TResult> data)
+		public void UsingRandomDataFrom(IEnumerable<TResult> data)
 		{
 			base.Using(() => data.Random());
 		}
 
-		public void UsingSequentialDataFrom<TResult>(IEnumerable<TResult> data, TResult previous)
+		public void UsingSequentialDataFrom(IEnumerable<TResult> data)
 		{
-			base.Using(() => data.NextElement(previous));
+			_previous =  data.NextElement((TResult)_previous);
+			base.Using(() => _previous);
 		}
+
+		private static TResult _previous;
 	}
 }
