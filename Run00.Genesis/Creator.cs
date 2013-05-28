@@ -265,14 +265,14 @@ namespace Run00.Genesis
 		{
 			Contract.Requires(type != null);
 
-			if (_staticDesigns.Keys.Contains(type))
-				return _staticDesigns[type].CreateObject();
-
 			return Create(type, _DEFAULT_RECURSION_DEPTH);
 		}
 		public object Create(Type type, int count)
 		{
 			Contract.Requires(type != null);
+
+			if (_staticDesigns.Keys.Contains(type))
+				return _staticDesigns[type].CreateObject();
 
 			var plan = CreatePlanFor(type, count);
 			if (plan.Generator == null)
