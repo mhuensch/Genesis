@@ -45,8 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionResultCreatorForPartialViewResult.cs" />
+    <Compile Include="DefaultActionTypeAttribute.cs" />
+    <Compile Include="ExtensionsForEnumerableOfActionResultCreator.cs" />
     <Compile Include="GenesisFilter.cs" />
+    <Compile Include="IActionResultCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ActionResultCreatorForViewResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Run00.Genesis\Run00.Genesis.csproj">

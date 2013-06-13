@@ -102,7 +102,6 @@
     <Compile Include="ExtensionsForEnumerableOfT.cs" />
     <Compile Include="ExtensionsForType.cs" />
     <Compile Include="StaticDesignOfT.cs" />
-    <Compile Include="DefaultActionTypeAttribute.cs" />
     <Compile Include="IntelligentDesignOfT.cs" />
     <Compile Include="IntelligentMutationOfT.cs" />
     <Compile Include="IGenerator.cs" />

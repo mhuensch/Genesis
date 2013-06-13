@@ -1,17 +1,15 @@
-﻿using Run00.Genesis;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace MvcWebRole.Filters
+namespace Run00.Genesis.Mvc
 {
 	public class GenesisFilter : ActionFilterAttribute, IActionFilter
 	{
-		public GenesisFilter(Creator creator)
+		public GenesisFilter(Creator creator, IEnumerable<IActionResultCreator> actionResultCreators)
 		{
 			_creator = creator;
+			_actionResultCreators = actionResultCreators;
 		}
 
 		public override void OnActionExecuted(ActionExecutedContext filterContext)
@@ -39,30 +37,19 @@ namespace MvcWebRole.Filters
 			if (attribute == null)
 				return;
 
-			if (typeof(ViewResultBase).IsAssignableFrom(attribute.ActionType) == false)
+			var actionCreator = _actionResultCreators.ForActionType(attribute.ActionType);
+			if (actionCreator == null)
 				return;
 
-			ViewResultBase result;
-			try
-			{
-				result = Activator.CreateInstance(attribute.ActionType) as ViewResultBase;
-			}
-			catch
-			{
-				return;
-			}
-
-			if (result == null)
-				return;
-
-			result.ViewData.Model = _creator.Create(attribute.ModelType, count);
+			var data = _creator.Create(attribute.ModelType, count);
+			var result = actionCreator.CreateResult(data);
 
 			filterContext.Result = result;
 			if (filterContext.Exception != null)
 				filterContext.ExceptionHandled = true;
 		}
 
+		private readonly IEnumerable<IActionResultCreator> _actionResultCreators;
 		private readonly Creator _creator;
-
 	}
 }
