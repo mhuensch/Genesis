@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Run00.Core;
 using Run00.Fixture;
 using Run00.Genesis.Test.Artifacts;
 

@@ -10,8 +10,6 @@ namespace Run00.Genesis.SimpleDesigns
 		}
 
 
-		#region private
 		private static readonly Random _random = new Random();
-		#endregion
 	}
 }

@@ -1,5 +1,4 @@
-﻿using Run00.Core;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -108,14 +107,14 @@ namespace Run00.Genesis
 				Generator = GetGeneratorFor(type, size),
 			};
 
-			if (type.IsEnumeration() == false)
-			{
-				result.PropertyPlans =
-						from property in type.GetProperties()
-						let planForProperty = CreatePropertyPlanFor(property, result.Generator, size)
-						where property.CanWrite && property.CanRead && planForProperty != null
-						select planForProperty;
-			}
+			if (typeof(IEnumerable).IsAssignableFrom(type))
+				return result;
+
+			result.PropertyPlans =
+				from property in type.GetProperties()
+				let planForProperty = CreatePropertyPlanFor(property, result.Generator, size)
+				where property.CanWrite && property.CanRead && planForProperty != null
+				select planForProperty;
 
 			return result;
 		}

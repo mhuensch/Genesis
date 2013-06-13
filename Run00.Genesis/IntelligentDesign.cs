@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq.Expressions;
 using System.Reflection;
-using Run00.Core;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Run00.Genesis
@@ -16,7 +15,7 @@ namespace Run00.Genesis
 
 			_forType = forType;
 			_mutations = new Dictionary<string, IntelligentMutation>();
-			if (_forType.HasPublicParameterlessConstructor())
+			if (_forType.GetConstructor(Type.EmptyTypes) != null)
 				_createUsing = () => Activator.CreateInstance(_forType);
 		}
 
