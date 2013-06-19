@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionResultCreatorForPartialViewResult.cs" />
-    <Compile Include="DefaultActionTypeAttribute.cs" />
+    <Compile Include="ActionResultCreatorForJsonResult.cs" />
+    <Compile Include="ActionResultCreatorForContentResult.cs" />
+    <Compile Include="DefaultActionResultAttribute.cs" />
     <Compile Include="ExtensionsForEnumerableOfActionResultCreator.cs" />
     <Compile Include="GenesisFilter.cs" />
     <Compile Include="IActionResultCreator.cs" />

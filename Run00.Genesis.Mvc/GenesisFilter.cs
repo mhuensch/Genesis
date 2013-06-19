@@ -33,11 +33,11 @@ namespace Run00.Genesis.Mvc
 				int.TryParse(countValue.ToString(), out count);
 
 			var methodInfo = ((ReflectedActionDescriptor)(filterContext.ActionDescriptor)).MethodInfo;
-			var attribute = methodInfo.GetCustomAttributes(typeof(DefaultActionTypeAttribute), false).FirstOrDefault() as DefaultActionTypeAttribute;
+			var attribute = methodInfo.GetCustomAttributes(typeof(DefaultActionResultAttribute), false).FirstOrDefault() as DefaultActionResultAttribute;
 			if (attribute == null)
 				return;
 
-			var actionCreator = _actionResultCreators.ForActionType(attribute.ActionType);
+			var actionCreator = _actionResultCreators.ForActionType(attribute.ActionResultType);
 			if (actionCreator == null)
 				return;
 
