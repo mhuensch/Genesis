@@ -10,6 +10,7 @@ namespace Run00.Genesis.Mvc
 		ActionResult IActionResultCreator.CreateResult(object data)
 		{
 			var result = new JsonResult();
+			result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
 			result.Data = data;
 			return result;
 		}
