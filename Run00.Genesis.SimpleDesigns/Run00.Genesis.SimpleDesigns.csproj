@@ -80,9 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Run00.Genesis\Run00.Genesis.csproj">
-      <Project>{C9E72B88-EEF7-4EDF-AADF-633C4BDE2691}</Project>
-      <Name>Run00.Genesis</Name>
+    <ProjectReference Include="..\Run00.Genesis.Old\Run00.Genesis.Old.csproj">
+      <Project>{c9e72b88-eef7-4edf-aadf-633c4bde2691}</Project>
+      <Name>Run00.Genesis.Old</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
