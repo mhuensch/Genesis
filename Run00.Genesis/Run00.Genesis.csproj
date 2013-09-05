@@ -39,8 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreatorOptions.cs" />
+    <Compile Include="ExtensionsForEnumerableOfT.cs" />
+    <Compile Include="IDesignRegistry.cs" />
+    <Compile Include="Mutation.cs" />
+    <Compile Include="IntelligentDesign.cs" />
     <Compile Include="ICreator.cs" />
+    <Compile Include="Design.cs" />
+    <Compile Include="DesignForProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

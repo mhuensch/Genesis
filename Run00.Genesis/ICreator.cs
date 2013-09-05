@@ -8,7 +8,7 @@ namespace Run00.Genesis
 {
 	public interface ICreator
 	{
-		T Create<T>(CreatorOptions options);
-		object Create(Type type, CreatorOptions options);
+		T Create<T>(string designName);
+		object Create(Type type, string designName);
 	}
 }
