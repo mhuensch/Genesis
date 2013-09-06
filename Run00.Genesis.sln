@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Run00.GenesisCreator.UnitTe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".deploy", ".deploy", "{D121F4C1-2DEF-453E-B932-1DBD5CAA232D}"
 	ProjectSection(SolutionItems) = preProject
-		publish.ps1 = publish.ps1
+		.deploy\publish.ps1 = .deploy\publish.ps1
 	EndProjectSection
 EndProject
 Global
