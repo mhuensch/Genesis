@@ -22,6 +22,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Run00.GenesisCreator", "Run
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Run00.GenesisCreator.UnitTest", "Run00.GenesisCreator.UnitTest\Run00.GenesisCreator.UnitTest.csproj", "{215E8B70-C508-4C70-A1EC-76F48BE5AE55}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".deploy", ".deploy", "{D121F4C1-2DEF-453E-B932-1DBD5CAA232D}"
+	ProjectSection(SolutionItems) = preProject
+		publish.ps1 = publish.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
